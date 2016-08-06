@@ -14,6 +14,7 @@
 		D86656201D3FDCA4006BDE42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D866561E1D3FDCA4006BDE42 /* LaunchScreen.storyboard */; };
 		D866562B1D3FDCA4006BDE42 /* TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D866562A1D3FDCA4006BDE42 /* TestTests.swift */; };
 		D86656361D3FDCA4006BDE42 /* TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86656351D3FDCA4006BDE42 /* TestUITests.swift */; };
+		D87332CE1D454C49003C8693 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87332CD1D454C49003C8693 /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D86656311D3FDCA4006BDE42 /* TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86656351D3FDCA4006BDE42 /* TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUITests.swift; sourceTree = "<group>"; };
 		D86656371D3FDCA4006BDE42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D87332CD1D454C49003C8693 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				D86656151D3FDCA4006BDE42 /* AppDelegate.swift */,
 				D86656171D3FDCA4006BDE42 /* ViewController.swift */,
+				D87332CD1D454C49003C8693 /* Test.swift */,
 				D86656191D3FDCA4006BDE42 /* Main.storyboard */,
 				D866561C1D3FDCA4006BDE42 /* Assets.xcassets */,
 				D866561E1D3FDCA4006BDE42 /* LaunchScreen.storyboard */,
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					D86656111D3FDCA2006BDE42 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = VBKM8BVQR4;
 					};
 					D86656251D3FDCA4006BDE42 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -258,6 +262,7 @@
 			files = (
 				D86656181D3FDCA4006BDE42 /* ViewController.swift in Sources */,
 				D86656161D3FDCA4006BDE42 /* AppDelegate.swift in Sources */,
+				D87332CE1D454C49003C8693 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,11 +406,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mrjutsu.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -413,11 +421,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mrjutsu.Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -486,6 +497,7 @@
 				D866563C1D3FDCA4006BDE42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D866563D1D3FDCA4006BDE42 /* Build configuration list for PBXNativeTarget "TestTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +506,7 @@
 				D866563F1D3FDCA4006BDE42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D86656401D3FDCA4006BDE42 /* Build configuration list for PBXNativeTarget "TestUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +515,7 @@
 				D86656421D3FDCA4006BDE42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
