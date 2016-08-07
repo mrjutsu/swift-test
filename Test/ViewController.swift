@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    
     let test = Test()
+    
+    static let MAX_TEXT_SIZE = 50
     
     @IBAction func addButtonPressed(sender: UIButton){
         print("se presiono el boton")
@@ -20,6 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         test.addItem(itemTextField.text!)
         tableView.reloadData()
         self.itemTextField?.resignFirstResponder()
+        self.itemTextField.text = nil
     }
 
     override func viewDidLoad() {
@@ -37,6 +41,16 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.itemTextField?.resignFirstResponder()
+    }
+    
+    //MARK: Metodos del textfield delegate
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String)->Bool {
+        if let tareaString = textField.text as? NSString {
+            let updatedString = tareaString.stringByReplacingCharactersInRange(range, withString: string)
+            return updatedString.characters.count < ViewController.MAX_TEXT_SIZE
+        } else {
+            return true
+        }
     }
 
 
