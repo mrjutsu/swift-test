@@ -104,7 +104,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sin fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnr-CF-rpS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sin fecha" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnr-CF-rpS">
                                                 <rect key="frame" x="304" y="0.0" width="296" height="150"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -140,6 +140,13 @@
                             <constraint firstItem="Qas-NK-Y9L" firstAttribute="width" secondItem="RJR-BF-L5Q" secondAttribute="width" id="qtO-i4-SSa"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ebA-2g-TKl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kEd-89-CFY">
+                            <connections>
+                                <action selector="addNotification:" destination="SHF-qa-W8g" id="DOg-WH-HIv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="xnr-CF-rpS" id="qxU-9d-c98"/>
                         <outlet property="descriptionLabel" destination="LDM-hd-MRI" id="FhN-KE-1Vj"/>
