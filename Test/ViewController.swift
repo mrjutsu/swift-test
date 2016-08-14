@@ -48,6 +48,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         self.performSegueWithIdentifier("showItem", sender: self)
         self.selectedItem = self.test.getItem(indexPath.row)
+//        MARK: transition when no segue is specified in storyboard
+//        let showVC = ShowViewController()
+//        showVC.item = self.selectedItem
+//        self.navigationController?.pushViewController(showVC, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
