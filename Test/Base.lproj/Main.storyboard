@@ -115,10 +115,25 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </stackView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lwc-tx-JJq">
+                                <rect key="frame" x="0.0" y="364" width="600" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="KMF-Fg-aY9"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="492901123.34961998">
+                                    <!--2016-08-14 20:58:43 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateSelected:" destination="SHF-qa-W8g" eventType="valueChanged" id="YY0-Aj-ZFp"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Qas-NK-Y9L" firstAttribute="top" secondItem="765-yW-oWE" secondAttribute="bottom" id="5TS-DB-QUk"/>
+                            <constraint firstItem="lwc-tx-JJq" firstAttribute="leading" secondItem="RJR-BF-L5Q" secondAttribute="leading" id="98w-Yu-6oX"/>
+                            <constraint firstAttribute="trailing" secondItem="lwc-tx-JJq" secondAttribute="trailing" id="9vq-Yv-E2d"/>
+                            <constraint firstItem="lwc-tx-JJq" firstAttribute="top" secondItem="Qas-NK-Y9L" secondAttribute="bottom" id="JOu-Hw-l5w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qas-NK-Y9L" secondAttribute="trailing" id="SDk-p8-0HW"/>
                             <constraint firstItem="Qas-NK-Y9L" firstAttribute="leading" secondItem="RJR-BF-L5Q" secondAttribute="leadingMargin" id="eL9-No-o3U"/>
                             <constraint firstItem="Qas-NK-Y9L" firstAttribute="height" secondItem="RJR-BF-L5Q" secondAttribute="height" multiplier="0.5" id="ogx-bR-v4L"/>

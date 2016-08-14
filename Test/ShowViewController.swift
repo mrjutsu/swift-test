@@ -20,7 +20,18 @@ class ShowViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         print("item \(item)")
-        self.descriptionLabel = item
+        self.descriptionLabel.text = item
+    }
+    
+    @IBAction func dateSelected(sender: UIDatePicker) {
+        print("fecha seleccionada \(sender.date)")
+        self.dateLabel.text = formatDate(sender.date)
+    }
+    
+    func formatDate(date: NSDate) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy HH:mm"
+        return formatter.stringFromDate(date)
     }
 
     override func didReceiveMemoryWarning() {
