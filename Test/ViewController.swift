@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     
     let test = Test()
     
+    var selectedItem: String?
+    
     static let MAX_TEXT_SIZE = 50
     
     @IBAction func addButtonPressed(sender: UIButton){
@@ -45,6 +47,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         self.performSegueWithIdentifier("showItem", sender: self)
+        self.selectedItem = self.test.getItem(indexPath.row)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let showViewController = segue.destinationViewController as? ShowViewController {
+            showViewController.item = self.selectedItem
+        }
     }
     
     //MARK: Metodos del textfield delegate

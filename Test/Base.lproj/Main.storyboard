@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="305" y="369"/>
         </scene>
-        <!--View Controller-->
+        <!--Show View Controller-->
         <scene sceneID="cRh-vz-UTg">
             <objects>
-                <viewController id="SHF-qa-W8g" sceneMemberID="viewController">
+                <viewController id="SHF-qa-W8g" customClass="ShowViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="765-yW-oWE"/>
                         <viewControllerLayoutGuide type="bottom" id="big-Ft-hDw"/>

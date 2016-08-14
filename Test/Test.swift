@@ -42,6 +42,10 @@ class Test: NSObject {
             self.items = itemsArray
         }
     }
+    
+    func getItem(index: Int) -> String{
+        return items[index]
+    }
 }
 
 extension Test : UITableViewDataSource {
