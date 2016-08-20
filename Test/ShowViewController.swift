@@ -18,6 +18,14 @@ class ShowViewController: UIViewController {
         self.dateLabel.text = formatDate(sender.date)
     }
     
+    @IBAction func addImage(sender: UIBarButtonItem) {
+        let imagePickerController = UIImagePickerController()
+//        This tu use camera instead of photo library
+//        imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
     @IBAction func addNotification(sender: UIBarButtonItem) {
         if let dateString = self.dateLabel.text {
             if let date = parseDate(dateString) {
