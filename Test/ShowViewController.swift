@@ -16,8 +16,10 @@ class ShowViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBAction func dateSelected(sender: UIDatePicker) {
         self.dateLabel.text = formatDate(sender.date)
+        self.datePicker.hidden = true
     }
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBAction func addImage(sender: UIBarButtonItem) {
         let imagePickerController = UIImagePickerController()
 //        This tu use camera instead of photo library
@@ -40,6 +42,16 @@ class ShowViewController: UIViewController {
         // Do any additional setup after loading the view.
         print("item \(item)")
         self.descriptionLabel.text = item
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        tapGestureRecognizer.numberOfTouchesRequired = 1
+        tapGestureRecognizer.addTarget(self, action: "toggleDatePicker")
+        self.dateLabel.addGestureRecognizer(tapGestureRecognizer)
+        self.dateLabel.userInteractionEnabled = true
+    }
+    
+    func toggleDatePicker() {
+        self.datePicker.hidden = !self.datePicker.hidden
     }
     
     func formatDate(date: NSDate) -> String {
