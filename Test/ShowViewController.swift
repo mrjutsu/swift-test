@@ -45,7 +45,7 @@ class ShowViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.numberOfTapsRequired = 1
         tapGestureRecognizer.numberOfTouchesRequired = 1
-        tapGestureRecognizer.addTarget(self, action: "toggleDatePicker")
+        tapGestureRecognizer.addTarget(self, action: #selector(ShowViewController.toggleDatePicker))
         self.dateLabel.addGestureRecognizer(tapGestureRecognizer)
         self.dateLabel.userInteractionEnabled = true
     }
