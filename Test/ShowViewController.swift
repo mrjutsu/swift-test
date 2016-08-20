@@ -8,23 +8,29 @@
 
 import UIKit
 
-class ShowViewController: UIViewController {
+class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var item: String?
 
     @IBOutlet weak var descriptionLabel: UILabel!
+    
     @IBOutlet weak var dateLabel: UILabel!
+    
     @IBAction func dateSelected(sender: UIDatePicker) {
         self.dateLabel.text = formatDate(sender.date)
         self.datePicker.hidden = true
     }
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var datePicker: UIDatePicker!
+    
     @IBAction func addImage(sender: UIBarButtonItem) {
         let imagePickerController = UIImagePickerController()
 //        This tu use camera instead of photo library
 //        imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
         imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePickerController.delegate = self
         self.presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
@@ -91,5 +97,14 @@ class ShowViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+//    MARK: Image picker controller methods
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imageView.image = image
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }

@@ -177,6 +177,7 @@
                         <outlet property="dateLabel" destination="xnr-CF-rpS" id="qxU-9d-c98"/>
                         <outlet property="datePicker" destination="lwc-tx-JJq" id="d6J-EW-3PZ"/>
                         <outlet property="descriptionLabel" destination="LDM-hd-MRI" id="FhN-KE-1Vj"/>
+                        <outlet property="imageView" destination="Uib-5Z-ZpY" id="VZJ-pl-wqa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3K0-12-2AI" userLabel="First Responder" sceneMemberID="firstResponder"/>
