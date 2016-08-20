@@ -18,7 +18,7 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func dateSelected(sender: UIDatePicker) {
         self.dateLabel.text = formatDate(sender.date)
-        self.datePicker.hidden = true
+        toggleDatePicker()
     }
     
     @IBOutlet weak var imageView: UIImageView!
@@ -57,6 +57,7 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func toggleDatePicker() {
+        self.imageView.hidden = self.datePicker.hidden
         self.datePicker.hidden = !self.datePicker.hidden
     }
     
