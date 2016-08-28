@@ -57,8 +57,13 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func toggleDatePicker() {
-        self.imageView.hidden = self.datePicker.hidden
-        self.datePicker.hidden = !self.datePicker.hidden
+//        self.imageView.hidden = self.datePicker.hidden
+//        self.datePicker.hidden = !self.datePicker.hidden
+        if self.datePicker.hidden {
+            self.fadeInDatePicker()
+        } else {
+            self.fadeOutDatePicker()
+        }
     }
     
     func formatDate(date: NSDate) -> String {
@@ -86,6 +91,30 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+//    MARK: Animationes
+    
+    func fadeInDatePicker() {
+        self.datePicker.alpha = 0
+        self.datePicker.hidden = false
+        UIView.animateWithDuration(1) { () -> Void in
+            self.datePicker.alpha = 1
+            self.imageView.alpha = 0
+        }
+    }
+    
+    func fadeOutDatePicker() {
+        self.datePicker.alpha = 1
+        self.datePicker.hidden = false
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            self.datePicker.alpha = 0
+            self.imageView.alpha = 1
+        }) { (completed) -> Void in
+            if completed {
+                self.datePicker.hidden = true
+            }
+        }
     }
     
 
