@@ -9,7 +9,7 @@
 import UIKit
 
 class Test: NSObject {
-    var items: [String] = []
+    var items: [TestItem] = []
     
     override init() {
         super.init()
@@ -21,29 +21,34 @@ class Test: NSObject {
         let documentDirectoryURLs = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
         let documentDirectoryURL = documentDirectoryURLs.first!
         print("path de documents \(documentDirectoryURL)")
-        return documentDirectoryURL.URLByAppendingPathComponent("test.items")
+        return documentDirectoryURL.URLByAppendingPathComponent("test.plist")
     }()
     
-    func addItem(item: String){
+    func addItem(item: TestItem){
         items.append(item)
         saveItems()
     }
     
     func saveItems(){
         let itemsArray = items as NSArray
-        if itemsArray.writeToURL(self.fileURL, atomically: true) {
-            print("guardado")
+        if NSKeyedArchiver.archiveRootObject(itemsArray, toFile: self.fileURL.path!) {
+            print ("guardado")
         } else {
-        print("no guardado")}
+            print("no guardado")
+        }
+//        if itemsArray.writeToURL(self.fileURL, atomically: true) {
+//            print("guardado")
+//        } else {
+//        print("no guardado")}
     }
     
     func loadItems(){
-        if let itemsArray = NSArray(contentsOfURL: self.fileURL) as? [String] {
-            self.items = itemsArray
+        if let itemsArray = NSKeyedUnarchiver.unarchiveObjectWithFile(self.fileURL.path!) {
+            self.items = itemsArray as! [TestItem]
         }
     }
     
-    func getItem(index: Int) -> String{
+    func getItem(index: Int) -> TestItem{
         return items[index]
     }
 }
@@ -57,7 +62,7 @@ extension Test : UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let item = items[indexPath.row]
         
-        cell.textLabel!.text = item
+        cell.textLabel!.text = item.todo
         return cell
     }
     
