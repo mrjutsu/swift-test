@@ -16,6 +16,10 @@ class TestItem: NSObject, NSCoding {
     
     var image: UIImage?
     
+    override init(){
+        super.init()
+    }
+    
     required init(coder aDecoder: NSCoder){
         super.init()
         if let message = aDecoder.decodeObjectForKey("todo") as? String {

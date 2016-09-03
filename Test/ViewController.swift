@@ -15,14 +15,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     
     let test = Test()
     
-    var selectedItem: String?
+    var selectedItem: TestItem?
     
     static let MAX_TEXT_SIZE = 50
     
     @IBAction func addButtonPressed(sender: UIButton){
         print("se presiono el boton")
         print(itemTextField.text)
-        test.addItem(itemTextField.text!)
+        let todoItem = TestItem()
+        todoItem.todo = itemTextField.text
+        test.addItem(todoItem)
         tableView.reloadData()
         self.itemTextField?.resignFirstResponder()
         self.itemTextField.text = nil
@@ -57,6 +59,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let showViewController = segue.destinationViewController as? ShowViewController {
             showViewController.item = self.selectedItem
+            showViewController.test = self.test
         }
     }
     

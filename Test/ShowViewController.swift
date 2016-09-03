@@ -10,7 +10,9 @@ import UIKit
 
 class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var item: String?
+    var item: TestItem?
+    
+    var test = Test?()
 
     @IBOutlet weak var descriptionLabel: UILabel!
     
@@ -37,7 +39,9 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func addNotification(sender: UIBarButtonItem) {
         if let dateString = self.dateLabel.text {
             if let date = parseDate(dateString) {
-                scheduleNotification(self.item!, date: date)
+                self.item?.dueDate = date
+                self.test?.saveItems()
+                scheduleNotification(self.item!.todo!, date: date)
             }
         }
     }
@@ -47,7 +51,7 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
         // Do any additional setup after loading the view.
         print("item \(item)")
-        self.descriptionLabel.text = item
+        showItem()
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.numberOfTapsRequired = 1
         tapGestureRecognizer.numberOfTouchesRequired = 1
@@ -55,6 +59,18 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.dateLabel.addGestureRecognizer(tapGestureRecognizer)
         self.dateLabel.userInteractionEnabled = true
         self.addGestureRecognizerToImage()
+    }
+    
+    func showItem(){
+        self.descriptionLabel.text = item?.todo
+        if let date = item?.dueDate {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy HH:mm"
+            self.dateLabel.text = formatter.stringFromDate(date)
+        }
+        if let img = item?.image {
+            self.imageView.image = img
+        }
     }
     
     func addGestureRecognizerToImage() {
@@ -150,6 +166,8 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.item?.image = image
+            self.test?.saveItems()
             self.imageView.image = image
         }
         self.dismissViewControllerAnimated(true, completion: nil)
