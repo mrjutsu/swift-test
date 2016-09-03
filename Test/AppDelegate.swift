@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        MARK: push notifications
 //        UIApplication.sharedApplication().registerForRemoteNotifications()
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        API.uniqueUsername()
         return true
     }
 

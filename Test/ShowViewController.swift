@@ -42,7 +42,15 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.item?.dueDate = date
                 self.test?.saveItems()
                 scheduleNotification(self.item!.todo!, date: date)
-                self.navigationController?.popViewControllerAnimated(true)
+                API.save(self.item!, test: self.test!, responseBlock: { (error) -> Void in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        if let err = error {
+                            self.showError()
+                        } else {
+                            self.navigationController?.popViewControllerAnimated(true)
+                        }
+                    })
+                })
             }
         }
     }
@@ -111,6 +119,16 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let parser = NSDateFormatter()
         parser.dateFormat = "dd/MM/yyyy HH:mm"
         return parser.dateFromString(string)
+    }
+    
+    func showError(){
+        let alert = UIAlertController(title: "Ups", message: "no se pudieron guardar los cambios", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default){
+            _ in
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func scheduleNotification(message: String, date: NSDate){

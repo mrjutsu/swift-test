@@ -17,6 +17,7 @@
 		D87332CE1D454C49003C8693 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87332CD1D454C49003C8693 /* Test.swift */; };
 		D8A0F2181D60F75F0063E6AE /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0F2171D60F75F0063E6AE /* ShowViewController.swift */; };
 		D8C518931D7B2AA000745501 /* TestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C518921D7B2AA000745501 /* TestItem.swift */; };
+		D8C518951D7B3F4100745501 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C518941D7B3F4100745501 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D87332CD1D454C49003C8693 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		D8A0F2171D60F75F0063E6AE /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		D8C518921D7B2AA000745501 /* TestItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestItem.swift; sourceTree = "<group>"; };
+		D8C518941D7B3F4100745501 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				D86656211D3FDCA4006BDE42 /* Info.plist */,
 				D8A0F2171D60F75F0063E6AE /* ShowViewController.swift */,
 				D8C518921D7B2AA000745501 /* TestItem.swift */,
+				D8C518941D7B3F4100745501 /* API.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				D86656181D3FDCA4006BDE42 /* ViewController.swift in Sources */,
 				D86656161D3FDCA4006BDE42 /* AppDelegate.swift in Sources */,
 				D87332CE1D454C49003C8693 /* Test.swift in Sources */,
+				D8C518951D7B3F4100745501 /* API.swift in Sources */,
 				D8A0F2181D60F75F0063E6AE /* ShowViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

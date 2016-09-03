@@ -16,6 +16,8 @@ class TestItem: NSObject, NSCoding {
     
     var image: UIImage?
     
+    var id: Int64?
+    
     override init(){
         super.init()
     }
@@ -31,6 +33,10 @@ class TestItem: NSObject, NSCoding {
         if let img = aDecoder.decodeObjectForKey("image") as? UIImage {
             self.image = img
         }
+        let identifier = aDecoder.decodeInt64ForKey("identifier")
+        if identifier != 0 {
+            self.id = identifier
+        }
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -42,6 +48,9 @@ class TestItem: NSObject, NSCoding {
         }
         if let img = self.image {
             aCoder.encodeObject(img, forKey: "image")
+        }
+        if let identifier = self.id {
+            aCoder.encodeInt64(identifier, forKey: "identifier")
         }
     }
     
