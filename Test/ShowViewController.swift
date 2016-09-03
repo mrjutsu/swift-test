@@ -42,6 +42,7 @@ class ShowViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.item?.dueDate = date
                 self.test?.saveItems()
                 scheduleNotification(self.item!.todo!, date: date)
+                self.navigationController?.popViewControllerAnimated(true)
             }
         }
     }
